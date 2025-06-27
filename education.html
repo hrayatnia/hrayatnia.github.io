@@ -6,40 +6,146 @@
   <title>Education | Sam Rayatnia</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-yellow-50 min-h-screen flex flex-col">
-  <nav class="w-full flex justify-center gap-6 py-6 bg-white/80 shadow-md sticky top-0 z-10">
-    <a href="index.html" class="font-semibold text-gray-700 hover:text-blue-700">Home</a>
-    <a href="profile.html" class="font-semibold text-gray-700 hover:text-blue-700">Profile</a>
-    <a href="experience.html" class="font-semibold text-gray-700 hover:text-blue-700">Experience</a>
-    <a href="education.html" class="font-semibold text-blue-700 border-b-2 border-blue-500 pb-1">Education</a>
-    <a href="skills.html" class="font-semibold text-gray-700 hover:text-blue-700">Skills</a>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen flex flex-col">
+  <nav class="w-full flex justify-center gap-6 py-6 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10 border-b border-gray-100">
+    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+    <a href="profile.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Profile</a>
+    <a href="experience.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Experience</a>
+    <a href="education.html" class="font-medium text-blue-600 border-b-2 border-blue-500 pb-1">Education</a>
+    <a href="skills.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
   </nav>
-  <main class="flex-1 flex items-center justify-center">
-    <section class="w-full max-w-2xl mx-auto bg-white/90 rounded-3xl shadow-xl px-8 py-12 flex flex-col gap-8">
-      <h1 class="text-3xl font-extrabold text-blue-800 text-center mb-2">Education</h1>
-      <div class="flex flex-col gap-6">
-        <div class="bg-blue-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-blue-700">Shahid Beheshti University, Tehran, Iran</h2>
-              <h3 class="text-base font-medium text-blue-500">M.Sc. in Computer Systems Architecture and Organization (Computer Networks)</h3>
+  
+  <main class="flex-1 py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Education</h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Education Timeline -->
+      <div class="space-y-8">
+        <!-- Master's Degree -->
+        <div class="relative">
+          <!-- Timeline connector -->
+          <div class="absolute left-8 top-12 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 to-transparent"></div>
+          
+          <div class="flex items-start space-x-6">
+            <!-- Timeline dot -->
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Sep 2018 – Jun 2021</span>
+            
+            <!-- Content -->
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Shahid Beheshti University</h2>
+                  <h3 class="text-lg font-semibold text-blue-600 mb-1">M.Sc. Computer Systems Architecture</h3>
+                  <p class="text-gray-500 text-sm mb-3">Computer Networks Specialization</p>
+                  <div class="flex items-center text-sm text-gray-400">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Tehran, Iran
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                    Sep 2018 – Jun 2021
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Research Focus</h4>
+                  <p class="text-gray-700 leading-relaxed">
+                    Brain Network Modelling using Complex Fractal Networks with Different Dynamics to Study Avalanches
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Notable Courses</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Bio-Inspired Modelling</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Advanced Networks</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Computer Arithmetic</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Hardware Security</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Brain Network Modelling using Complex Fractal Networks with Different Dynamics to Study Avalanches. Notable Courses: Bio-Inspired Modelling, Advanced Networks, Computer Arithmetic, Hardware Security.</p>
         </div>
-        <div class="bg-yellow-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-yellow-700">Babol Noshirvani University of Technology, Babol, Iran</h2>
-              <h3 class="text-base font-medium text-yellow-600">B.Sc. in Computer Software Engineering (Algorithms & Computation)</h3>
+
+        <!-- Bachelor's Degree -->
+        <div class="relative">
+          <div class="flex items-start space-x-6">
+            <!-- Timeline dot -->
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Sep 2012 – Sep 2017</span>
+            
+            <!-- Content -->
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Babol Noshirvani University of Technology</h2>
+                  <h3 class="text-lg font-semibold text-indigo-600 mb-1">B.Sc. Computer Software Engineering</h3>
+                  <p class="text-gray-500 text-sm mb-3">Algorithms & Computation Specialization</p>
+                  <div class="flex items-center text-sm text-gray-400">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Babol, Iran
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                    Sep 2012 – Sep 2017
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Research Focus</h4>
+                  <p class="text-gray-700 leading-relaxed">
+                    Design and Implementation of EEG Data Analysis Tools (Second Brain)
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Notable Courses</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Advanced Algorithms</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Graph Theory</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Machine Learning</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Side Projects</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-lg text-sm">Motor Imagery Classification</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-lg text-sm">Yacc LALR Compiler</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Design and Implementation of EEG Data Analysis Tools (Second Brain). Notable Courses: Advanced Algorithms, Graph Theory and Applications, Fundamental of Machine Learning. Side Projects: Motor Imagery Data Classification, Yacc LALR Compiler.</p>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 </body>
 </html> 

@@ -6,70 +6,273 @@
   <title>Experience | Sam Rayatnia</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-yellow-50 min-h-screen flex flex-col">
-  <nav class="w-full flex justify-center gap-6 py-6 bg-white/80 shadow-md sticky top-0 z-10">
-    <a href="index.html" class="font-semibold text-gray-700 hover:text-blue-700">Home</a>
-    <a href="profile.html" class="font-semibold text-gray-700 hover:text-blue-700">Profile</a>
-    <a href="experience.html" class="font-semibold text-blue-700 border-b-2 border-blue-500 pb-1">Experience</a>
-    <a href="education.html" class="font-semibold text-gray-700 hover:text-blue-700">Education</a>
-    <a href="skills.html" class="font-semibold text-gray-700 hover:text-blue-700">Skills</a>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen flex flex-col">
+  <nav class="w-full flex justify-center gap-6 py-6 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10 border-b border-gray-100">
+    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+    <a href="profile.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Profile</a>
+    <a href="experience.html" class="font-medium text-blue-600 border-b-2 border-blue-500 pb-1">Experience</a>
+    <a href="education.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Education</a>
+    <a href="skills.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
   </nav>
-  <main class="flex-1 flex items-center justify-center">
-    <section class="w-full max-w-2xl mx-auto bg-white/90 rounded-3xl shadow-xl px-8 py-12 flex flex-col gap-8">
-      <h1 class="text-3xl font-extrabold text-blue-800 text-center mb-2">Experience</h1>
-      <div class="flex flex-col gap-6">
-        <div class="bg-blue-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-blue-700">Nimmsta GmbH, Munich, Germany</h2>
-              <h3 class="text-base font-medium text-blue-500">Software Engineering Team Lead</h3>
+  
+  <main class="flex-1 py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Experience</h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Experience Timeline -->
+      <div class="space-y-8">
+        <!-- Nimmsta GmbH -->
+        <div class="relative">
+          <!-- Timeline connector -->
+          <div class="absolute left-8 top-12 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 to-transparent"></div>
+          
+          <div class="flex items-start space-x-6">
+            <!-- Timeline dot -->
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">May 2023 – Nov 2024</span>
+            
+            <!-- Content -->
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Nimmsta GmbH</h2>
+                  <h3 class="text-lg font-semibold text-blue-600 mb-1">Software Engineering Team Lead</h3>
+                  <div class="flex items-center text-sm text-gray-400 mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Munich, Germany
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                    May 2023 – Nov 2024
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Led a team to dramatically reduce system latency and boost UI performance, while driving a <span class="font-semibold text-blue-600">70% revenue increase</span> through cloud service innovation. Established best practices, mentored new leaders, and expanded the team, all while delivering core SDKs and optimizing productivity and development speed.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">C++</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Java</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Kotlin</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">AWS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Led a team to dramatically reduce system latency and boost UI performance, while driving a 70% revenue increase through cloud service innovation. Established best practices, mentored new leaders, and expanded the team, all while delivering core SDKs and optimizing productivity and development speed. Work spanned C++, Java, Kotlin, AWS, and more.</p>
         </div>
-        <div class="bg-yellow-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-yellow-700">Spacific GmbH, Hamburg, Germany</h2>
-              <h3 class="text-base font-medium text-yellow-600">Senior iOS Engineer</h3>
+
+        <!-- Spacific GmbH -->
+        <div class="relative">
+          <div class="absolute left-8 top-12 bottom-0 w-0.5 bg-gradient-to-b from-indigo-200 to-transparent"></div>
+          
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Jan 2023 – May 2023</span>
+            
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Spacific GmbH</h2>
+                  <h3 class="text-lg font-semibold text-indigo-600 mb-1">Senior iOS Engineer</h3>
+                  <div class="flex items-center text-sm text-gray-400 mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Hamburg, Germany
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                    Jan 2023 – May 2023
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Engineered ARKit-based spatial measurement apps with <span class="font-semibold text-indigo-600">97% accuracy</span>, improved AR tracking and edge detection, and mentored teammates in photogrammetry and automation. Advanced AR precision and user experience, though the contract ended due to company insolvency.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Swift</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Objective-C</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">ARKit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Engineered ARKit-based spatial measurement apps with 97% accuracy, improved AR tracking and edge detection, and mentored teammates in photogrammetry and automation. Advanced AR precision and user experience, though the contract ended due to company insolvency. Stack included Swift, ObjC, ARKit, and more.</p>
         </div>
-        <div class="bg-blue-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-blue-700">Check24 GmbH and DoctorBox GmbH, Munich, Germany</h2>
-              <h3 class="text-base font-medium text-blue-500">Senior iOS Engineer</h3>
+
+        <!-- Check24 & DoctorBox -->
+        <div class="relative">
+          <div class="absolute left-8 top-12 bottom-0 w-0.5 bg-gradient-to-b from-purple-200 to-transparent"></div>
+          
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Nov 2021 – Dec 2022</span>
+            
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Check24 GmbH & DoctorBox GmbH</h2>
+                  <h3 class="text-lg font-semibold text-purple-600 mb-1">Senior iOS Engineer</h3>
+                  <div class="flex items-center text-sm text-gray-400 mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Munich, Germany
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                    Nov 2021 – Dec 2022
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Accelerated development by <span class="font-semibold text-purple-600">80%</span> at Check24 and DoctorBox, introducing a design system SDK and modernizing AR-based features. Redesigns improved user satisfaction and reduced KYC wait times, while also implementing robust background processing and mentoring the team.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Swift</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Objective-C</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">iOS Frameworks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Accelerated development by 80% at Check24 and DoctorBox, introducing a design system SDK and modernizing AR-based features. Redesigns improved user satisfaction and reduced KYC wait times, while also implementing robust background processing and mentoring the team. Work leveraged Swift, Objective-C, and modern iOS frameworks.</p>
         </div>
-        <div class="bg-yellow-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-yellow-700">Digikala Group, Divar, and Behpardakht Mellat, Tehran, Iran</h2>
-              <h3 class="text-base font-medium text-yellow-600">Lead Software Engineer & Mobile Engineer</h3>
+
+        <!-- Digikala Group -->
+        <div class="relative">
+          <div class="absolute left-8 top-12 bottom-0 w-0.5 bg-gradient-to-b from-pink-200 to-transparent"></div>
+          
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Apr 2012 – Nov 2021</span>
+            
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Digikala Group, Divar, & Behpardakht Mellat</h2>
+                  <h3 class="text-lg font-semibold text-pink-600 mb-1">Lead Software Engineer & Mobile Engineer</h3>
+                  <div class="flex items-center text-sm text-gray-400 mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Tehran, Iran
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-pink-100 text-pink-800">
+                    Apr 2012 – Nov 2021
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Delivered high-performance navigation SDKs, secure payment solutions, and production-ready apps across AR, healthcare, and inventory domains. Led and mentored a <span class="font-semibold text-pink-600">13-person iOS team</span>, boosting revenue and code quality, and contributed to cross-platform product delivery.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Swift</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">C++</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Python</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Delivered high-performance navigation SDKs, secure payment solutions, and production-ready apps across AR, healthcare, and inventory domains. Led and mentored a 13-person iOS team, boosting revenue and code quality, and contributed to cross-platform product delivery using Swift, C++, Python, and more.</p>
         </div>
-        <div class="bg-blue-50 rounded-xl shadow p-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-            <div>
-              <h2 class="text-xl font-bold text-blue-700">Neuromatch Academy, Remote, Los Angeles, CA</h2>
-              <h3 class="text-base font-medium text-blue-500">Co-CTO and Lecturer (Part-Time)</h3>
+
+        <!-- Neuromatch Academy -->
+        <div class="relative">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
             </div>
-            <span class="text-sm text-gray-500 mt-2 md:mt-0">Jul 2020 – May 2023</span>
+            
+            <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Neuromatch Academy</h2>
+                  <h3 class="text-lg font-semibold text-red-600 mb-1">Co-CTO and Lecturer (Part-Time)</h3>
+                  <div class="flex items-center text-sm text-gray-400 mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Remote, Los Angeles, CA
+                  </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                    Jul 2020 – May 2023
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Increased student engagement by <span class="font-semibold text-red-600">80%</span> through portal redesign, secured funding, and led curriculum and automation tool development for ML/AI. Mentored over <span class="font-semibold text-red-600">30 students</span> and supported global course delivery.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Python</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">TensorFlow</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">Docker</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700">Increased student engagement by 80% through portal redesign, secured funding, and led curriculum and automation tool development for ML/AI. Mentored over 30 students and supported global course delivery, working with Python, TensorFlow, Docker, and more.</p>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 </body>
 </html> 

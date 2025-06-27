@@ -6,34 +6,125 @@
   <title>Profile | Sam Rayatnia</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-yellow-50 min-h-screen flex flex-col">
-  <nav class="w-full flex justify-center gap-6 py-6 bg-white/80 shadow-md sticky top-0 z-10">
-    <a href="index.html" class="font-semibold text-gray-700 hover:text-blue-700">Home</a>
-    <a href="profile.html" class="font-semibold text-blue-700 border-b-2 border-blue-500 pb-1">Profile</a>
-    <a href="experience.html" class="font-semibold text-gray-700 hover:text-blue-700">Experience</a>
-    <a href="education.html" class="font-semibold text-gray-700 hover:text-blue-700">Education</a>
-    <a href="skills.html" class="font-semibold text-gray-700 hover:text-blue-700">Skills</a>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen flex flex-col">
+  <nav class="w-full flex justify-center gap-6 py-6 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10 border-b border-gray-100">
+    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+    <a href="profile.html" class="font-medium text-blue-600 border-b-2 border-blue-500 pb-1">Profile</a>
+    <a href="experience.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Experience</a>
+    <a href="education.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Education</a>
+    <a href="skills.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
   </nav>
-  <main class="flex-1 flex items-center justify-center">
-    <section class="w-full max-w-xl mx-auto bg-white/90 rounded-3xl shadow-xl px-8 py-12 flex flex-col items-center text-center gap-6">
-      <img src="static/img/profile.jpg" alt="Sam Rayatnia profile photo" class="w-32 h-32 rounded-full border-4 border-blue-400 shadow-lg mb-2 object-cover" />
-      <h1 class="text-3xl font-extrabold text-blue-800">Sam Rayatnia</h1>
-      <h2 class="text-lg font-medium text-blue-500 mb-2">Lead Mobile Engineer — Software Engineer</h2>
-      <p class="text-gray-500 mb-1">Munich, Germany</p>
-      <p class="text-gray-500 mb-4">sam@rayatnia.me</p>
-      <section class="w-full">
-        <h3 class="text-xl font-bold text-blue-700 mb-2">Summary</h3>
-        <p class="text-gray-700 mb-4">Lead Software Engineer with 12+ years of experience in Mobile Technologies having delivered 50+ apps and 100+ SDKs/modules reaching over 100M users globally. Proven ability to thrive in collaborative, international teams across sectors like FinTech, eHealth, AR/VR, navigation, and e-commerce. I take pride in clear communication, cross-functional collaboration, and mentoring engineers to drive shared success.</p>
-      </section>
-      <section class="w-full">
-        <h3 class="text-xl font-bold text-blue-700 mb-2">Languages</h3>
-        <ul class="flex flex-col gap-1 items-center text-gray-700">
-          <li>English: C1 Proficiency</li>
-          <li>German: Basic Knowledge (Learning)</li>
-          <li>Persian: Native</li>
-        </ul>
-      </section>
-    </section>
+  
+  <main class="flex-1 py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Profile</h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 lg:p-12">
+        <!-- Profile Header -->
+        <div class="text-center mb-12">
+          <div class="relative inline-block mb-6">
+            <img src="static/img/profile.jpg" alt="Sam Rayatnia profile photo" class="w-40 h-40 rounded-full border-4 border-white shadow-xl object-cover" />
+            <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Sam Rayatnia</h2>
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Lead Mobile Engineer — Software Engineer</h3>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-500 mb-6">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              Munich, Germany
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              sam@rayatnia.me
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Summary Section -->
+          <div class="space-y-6">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Professional Summary</h3>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-6">
+              <p class="text-gray-700 leading-relaxed">
+                Lead Software Engineer with <span class="font-semibold text-blue-600">12+ years</span> of experience in Mobile Technologies having delivered <span class="font-semibold text-blue-600">50+ apps</span> and <span class="font-semibold text-blue-600">100+ SDKs/modules</span> reaching over <span class="font-semibold text-blue-600">100M users</span> globally.
+              </p>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                Proven ability to thrive in collaborative, international teams across sectors like <span class="font-medium text-gray-800">FinTech</span>, <span class="font-medium text-gray-800">eHealth</span>, <span class="font-medium text-gray-800">AR/VR</span>, <span class="font-medium text-gray-800">navigation</span>, and <span class="font-medium text-gray-800">e-commerce</span>. I take pride in clear communication, cross-functional collaboration, and mentoring engineers to drive shared success.
+              </p>
+            </div>
+          </div>
+
+          <!-- Languages Section -->
+          <div class="space-y-6">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Languages</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <span class="font-semibold text-gray-900">English</span>
+                  </div>
+                  <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">C1 Proficiency</span>
+                </div>
+              </div>
+              
+              <div class="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                    <span class="font-semibold text-gray-900">German</span>
+                  </div>
+                  <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">Basic Knowledge (Learning)</span>
+                </div>
+              </div>
+              
+              <div class="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                    <span class="font-semibold text-gray-900">Persian</span>
+                  </div>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Native</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html> 
