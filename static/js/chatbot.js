@@ -1,95 +1,22 @@
 (function () {
   'use strict';
 
-  // ─── Profile context ──────────────────────────────────────────────────────
-  var SYSTEM_PROMPT = [
+  // ─── Document URLs to fetch for profile context ───────────────────────────
+  // All paths are resolved relative to the site root at runtime.
+  var PROFILE_URLS = [
+    'profile.html',
+    'experience.html',
+    'education.html',
+    'skills.html'
+  ];
+
+  var SYSTEM_PREFIX = [
     'You are a helpful AI assistant embedded in Sam Rayatnia\'s personal portfolio website.',
-    'You ONLY answer questions about Sam Rayatnia based on the information below.',
+    'You ONLY answer questions about Sam Rayatnia based on the content extracted from his website pages listed below.',
     'If asked about anything unrelated to Sam\'s profile, politely decline and redirect.',
     'Be concise, friendly, and professional.',
     '',
-    '# Sam Rayatnia – Profile Data',
-    '',
-    '## Basic Info',
-    '- Full name: Sam Rayatnia',
-    '- Title: Lead Mobile Engineer — Software Engineer',
-    '- Location: Munich, Germany',
-    '- Email: sam@rayatnia.me',
-    '- Website: sam.rayatnia.me',
-    '- Years of experience: 12+',
-    '',
-    '## Professional Summary',
-    'Lead Software Engineer with 12+ years of experience in Mobile Technologies.',
-    'Delivered 50+ apps and 100+ SDKs/modules, reaching 100M+ users globally.',
-    'Sectors: FinTech, eHealth, AR/VR, navigation, e-commerce.',
-    'Expertise in cross-functional collaboration and mentoring.',
-    '',
-    '## Work Experience',
-    '',
-    '### Nimmsta GmbH (May 2023 – Nov 2024)',
-    '- Role: Software Engineering Team Lead',
-    '- Location: Munich, Germany',
-    '- 70% revenue increase through cloud service innovation',
-    '- Technologies: C++, Java, Kotlin, AWS',
-    '',
-    '### Spacific GmbH (Jan 2023 – May 2023)',
-    '- Role: Senior iOS Engineer',
-    '- Location: Hamburg, Germany',
-    '- ARKit spatial measurement apps with 97% accuracy',
-    '- Technologies: Swift, Objective-C, ARKit',
-    '',
-    '### Check24 & DoctorBox (Nov 2021 – Dec 2022)',
-    '- Role: Senior iOS Engineer',
-    '- Location: Munich, Germany',
-    '- 80% development acceleration; built design system SDK and AR features',
-    '- Technologies: Swift, Objective-C, iOS Frameworks',
-    '',
-    '### Digikala Group / Divar / Behpardakht (Apr 2012 – Nov 2021)',
-    '- Role: Lead Software Engineer & Mobile Engineer',
-    '- Location: Tehran, Iran',
-    '- Led 13-person iOS team; built navigation SDKs, payment solutions, AR/healthcare apps',
-    '- Technologies: Swift, C++, Python',
-    '',
-    '### Neuromatch Academy (Jul 2020 – May 2023)',
-    '- Role: Co-CTO and Lecturer (Part-Time)',
-    '- Location: Remote / Los Angeles',
-    '- 80% student engagement increase; mentored 30+ students',
-    '- Technologies: Python, TensorFlow, Docker',
-    '',
-    '## Education',
-    '',
-    '### M.Sc. Computer Systems Architecture',
-    '- Institution: Shahid Beheshti University',
-    '- Period: Sep 2018 – Jun 2021',
-    '- Specialisation: Computer Networks',
-    '- Research: Brain Network Modelling using Complex Fractal Networks',
-    '- Courses: Bio-Inspired Modelling, Advanced Networks, Computer Arithmetic, Hardware Security',
-    '',
-    '### B.Sc. Computer Software Engineering',
-    '- Institution: Babol Noshirvani University of Technology',
-    '- Period: Sep 2012 – Sep 2017',
-    '- Specialisation: Algorithms & Computation',
-    '- Research: EEG Data Analysis Tools (Second Brain)',
-    '- Courses: Advanced Algorithms, Graph Theory, Machine Learning',
-    '- Side Projects: Motor Imagery Classification, Yacc LALR Compiler',
-    '',
-    '## Technical Skills',
-    '',
-    '### Expert (95%)',
-    'Swift (1.0 – 6.2-DEV), Software Architecture, Mobile Engineering,',
-    'Statistical Modelling, Complex Systems & Algorithms, Problem-Solving,',
-    'A/B Testing, SwiftUI, UIKit',
-    '',
-    '### Advanced (80–85%)',
-    'C/C++ (C95–C17), Python (2.4–3.12), Java (6–20), Performance Optimisation',
-    '',
-    '### Good (70%)',
-    'Objective-C 2.0',
-    '',
-    '## Languages',
-    '- English: C1 Proficiency',
-    '- German: Basic (actively learning)',
-    '- Persian: Native'
+    '# Content extracted from sam.rayatnia.me'
   ].join('\n');
 
   // ─── HTML widget ──────────────────────────────────────────────────────────
@@ -140,13 +67,53 @@
   // ─── ChatBot singleton ────────────────────────────────────────────────────
   window.ChatBot = {
     isOpen: false,
-    history: [],  // {role, parts:[{text}]}
+    history: [],          // {role, parts:[{text}]}
+    _context: null,       // fetched + extracted text, set after _contextPromise resolves
+    _contextPromise: null,
 
     init: function () {
       document.body.insertAdjacentHTML('beforeend', WIDGET_HTML);
       this._injectStyles();
       this._bindEvents();
       this._addWelcome();
+      // Kick off background fetch of all profile pages
+      this._contextPromise = this._fetchContext();
+    },
+
+    // Fetch each profile page, strip non-content elements, return combined plain text
+    _fetchContext: function () {
+      var self = this;
+      // Build absolute base URL (handles subdirectory deployments too)
+      var base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+
+      var fetches = PROFILE_URLS.map(function (path) {
+        var url = base + path;
+        return fetch(url)
+          .then(function (res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+          })
+          .then(function (html) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(html, 'text/html');
+            // Strip chrome elements so only readable content remains
+            doc.querySelectorAll('nav, script, style, svg, button, noscript').forEach(function (el) {
+              el.remove();
+            });
+            var text = (doc.body.textContent || doc.body.innerText || '')
+              .replace(/[ \t]+/g, ' ')          // collapse horizontal whitespace
+              .replace(/\n{3,}/g, '\n\n')        // collapse blank lines
+              .trim();
+            return '### ' + url + '\n\n' + text;
+          })
+          .catch(function () { return ''; }); // never block the UI on a failed fetch
+      });
+
+      return Promise.all(fetches).then(function (sections) {
+        var combined = SYSTEM_PREFIX + '\n\n' + sections.filter(Boolean).join('\n\n---\n\n');
+        self._context = combined;
+        return combined;
+      });
     },
 
     _injectStyles: function () {
@@ -161,7 +128,7 @@
         '#cb-api-input:focus{border-color:#3a86ff!important}',
         '#cb-msgs::-webkit-scrollbar{width:4px}',
         '#cb-msgs::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}',
-        // neutralise global `a::after` added by style.css on other pages
+        // neutralise global `a::after` from style.css
         '#cb-root a::after{display:none!important;content:""!important}',
         '#cb-root button::after{display:none!important}'
       ].join('');
@@ -248,11 +215,13 @@
 
       var sendBtn = document.getElementById('cb-send');
       sendBtn.disabled = true;
-
       var typingId = this._appendTyping();
       var self = this;
 
-      this._callGemini(key)
+      // Wait for profile pages to finish loading, then call Gemini
+      var ready = this._contextPromise || Promise.resolve();
+      ready
+        .then(function () { return self._callGemini(key); })
         .then(function (reply) {
           self._removeEl(typingId);
           self._appendMsg(reply, 'bot');
@@ -265,15 +234,14 @@
             : 'Something went wrong. Please try again.';
           self._appendMsg(msg, 'bot', true);
         })
-        .then(function () {
-          sendBtn.disabled = false;
-        });
+        .then(function () { sendBtn.disabled = false; });
     },
 
     _callGemini: function (apiKey) {
+      var context = this._context || SYSTEM_PREFIX;
       var url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + encodeURIComponent(apiKey);
       var body = {
-        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        system_instruction: { parts: [{ text: context }] },
         contents: this.history,
         generationConfig: { maxOutputTokens: 512, temperature: 0.7 }
       };
@@ -303,7 +271,6 @@
       d.style.cssText = role === 'user'
         ? 'background:#3a86ff;color:#fff;border-radius:14px 14px 4px 14px;padding:10px 14px;font-size:13.5px;line-height:1.5;max-width:82%;align-self:flex-end;word-break:break-word;animation:cb-fadein .18s ease;'
         : 'background:' + (isError ? '#fef2f2' : '#fff') + ';color:' + (isError ? '#dc2626' : '#374151') + ';border-radius:14px 14px 14px 4px;padding:10px 14px;font-size:13.5px;line-height:1.5;max-width:82%;box-shadow:0 1px 5px rgba(0,0,0,.07);word-break:break-word;animation:cb-fadein .18s ease;';
-      // Minimal markdown: **bold**, line breaks
       d.innerHTML = text
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
