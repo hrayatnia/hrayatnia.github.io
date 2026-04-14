@@ -1,0 +1,27 @@
+{
+  "status": "ok",
+  "generated": "2026-04-14T15:38:55.023460+00:00",
+  "feed": {
+    "title": "Stories by Sam Rayatnia on Medium",
+    "link": "https://medium.com/@rayatnia?source=rss-6a81a59e56c8------2"
+  },
+  "items": [
+    {
+      "title": "A simple way to separate test types in iOS, Part 1",
+      "link": "https://medium.com/@rayatnia/a-simple-way-to-separate-test-types-in-ios-part-1-df92afbd843b?source=rss-6a81a59e56c8------2",
+      "pubDate": "Fri, 02 Dec 2022 08:34:20 GMT",
+      "author": "Sam Rayatnia",
+      "thumbnail": "",
+      "description": "",
+      "content": "<p>testing software was always crucial in terms of reliability and expansion in business, and client services are no exception. in fact, testing client services has many aspects that you usually face only sometimes for business logic services. In this article, I will suggest a simple way to have a ready-to-go separation package for your test runner in iOS with swift. Please note that you shouldn&#39;t expect an advanced package for testing but just a convenient way to overcome multi-type test problems on daily bases.</p><h4><strong>Overview</strong></h4><p>to separate test types and modules in iOS; a couple of ways always are in use by developers. Either you can separate targets or define a flag (run-time or predefined flag) to make sure the border between your test strategies are well defined. Like every single other development problem, there&#39;re downsides and upsides to these solutions as well. Here are some pros and cons of each one of those.</p><p><strong>Multi-target test components</strong></p><p><strong><em>pros</em></strong><em>:</em></p><ul><li>Lesser build time due to fewer files and less dependency.</li><li>No more mess during development for file organization.</li><li>Easier usage through FastLane or any other automation tool.</li><li>A better dependency separation for test components.</li></ul><p><strong><em>Cons</em></strong><em>:</em></p><ul><li>A good possibility of repeating yourself in a single-module application.</li><li>High setup time for multi-component applications.</li><li>Too much effort goes into making it a standard.</li></ul><p><strong>Multi-flag testing strategy</strong></p><p><strong><em>pros:</em></strong></p><ul><li>Ready-to-go separation for test modules (with run-time flag).</li><li>Less possibility of repeating yourself in a single-module application.</li><li>Not that hard to make CI/CD friendly.</li></ul><p><strong><em>Cons:</em></strong></p><ul><li>Too many files to build for single-module applications.</li><li>it can get messy if the developer follows the correct group approach in single-module applications.</li><li>Too many modules will get imported into one target in single-module applications.</li></ul><p>And for sure, always, there&#39;s a hybrid solution for the problem to balance the pros and cons regarding the project structure.</p><h3><strong>Method</strong></h3><p>in part 1, we will go through the run-time approach to create a simple util module for test separation. The most common test components for client services are <strong>unit tests, UI tests, screenshot tests, chaos/monkey tests, and integration tests</strong>. We can define these test-type flags however we desire, but for the sake of article, I will make it an enum.</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/7ebf488fa7f1de90b219589630e7c86b/href\">https://medium.com/media/7ebf488fa7f1de90b219589630e7c86b/href</a></iframe><p>To be more CI/CD friendly, we have to get those flags from a file or obtain them by processing environment variables. We must store flags to run multi-part components based on branch requirements. The easiest way to achieve such storage is by using a static variable.</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/f29d8cde57cb4d909a0d896c17c4b5cc/href\">https://medium.com/media/f29d8cde57cb4d909a0d896c17c4b5cc/href</a></iframe><p>We need to have the flag as a property of our testing class to decide whether to skip or do the test.</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/50ade3b49786406a064bc35dbe76827f/href\">https://medium.com/media/50ade3b49786406a064bc35dbe76827f/href</a></iframe><p>And by having the flag, we can distinguish our test classes.</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/ee70e5e374235251182772916f4023f9/href\">https://medium.com/media/ee70e5e374235251182772916f4023f9/href</a></iframe><p>The rest of it is just the definition types you need.</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/42198b1001523aa282d2f92d874c8248/href\">https://medium.com/media/42198b1001523aa282d2f92d874c8248/href</a></iframe><h3><strong>Conclusion</strong></h3><p>This article&#39;s following parts will discuss the multi-target approach and CI/CD configuration.</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=df92afbd843b\" width=\"1\" height=\"1\" alt=\"\">",
+      "categories": [
+        "mobile-app-development",
+        "testing",
+        "ios",
+        "swift",
+        "test-automation"
+      ],
+      "guid": "https://medium.com/p/df92afbd843b"
+    }
+  ]
+}
