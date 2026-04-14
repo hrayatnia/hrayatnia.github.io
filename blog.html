@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Sam Rayatnia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen flex flex-col">
+
+  <nav class="w-full flex justify-center gap-6 py-6 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10 border-b border-gray-100">
+    <a href="index.html"      class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+    <a href="profile.html"    class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Profile</a>
+    <a href="experience.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Experience</a>
+    <a href="education.html"  class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Education</a>
+    <a href="skills.html"     class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
+    <a href="blog.html"       class="font-medium text-blue-600 border-b-2 border-blue-500 pb-1">Blog</a>
+  </nav>
+
+  <main class="flex-1 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Page header -->
+      <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Writing</h1>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">
+          Thoughts on iOS engineering, software architecture, and the occasional detour into computational neuroscience.
+        </p>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full mt-6"></div>
+      </div>
+
+      <!-- Tag filter -->
+      <div id="tag-bar" class="flex flex-wrap gap-2 justify-center mb-8 min-h-[36px]"></div>
+
+      <!-- Post count -->
+      <p id="post-count" class="text-center text-sm text-gray-400 mb-6"></p>
+
+      <!-- Error state -->
+      <div id="blog-error" class="hidden text-center py-16">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Could not load posts</h3>
+        <p class="text-gray-500 mb-6">There was a problem fetching the blog feed. Please try again later.</p>
+        <a href="https://blog.rayatnia.me" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors">
+          Read on Medium instead
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Empty state -->
+      <div id="blog-empty" class="hidden text-center py-16">
+        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">No posts found</h3>
+        <p class="text-gray-500">Try clearing the tag filter.</p>
+      </div>
+
+      <!-- Post grid -->
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- Load more -->
+      <div class="flex justify-center mt-10">
+        <button id="load-more" type="button"
+                class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl font-semibold shadow-sm hover:shadow-md hover:border-blue-300 hover:text-blue-600 transition-all duration-300">
+          Load more posts
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="text-center py-8 text-sm text-gray-400 border-t border-gray-100 bg-white/60">
+    <p>
+      Words by <a href="index.html" class="text-blue-500 hover:text-blue-600">Sam Rayatnia</a>
+      · Originally published on
+      <a href="https://blog.rayatnia.me" target="_blank" rel="noopener noreferrer"
+         class="text-blue-500 hover:text-blue-600">Medium</a>
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js" defer></script>
+  <script src="static/js/blog.js" defer></script>
+</body>
+</html>

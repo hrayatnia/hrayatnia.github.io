@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post | Sam Rayatnia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ── Prose styles for Medium article content ── */
+    .prose-content {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: #374151;
+    }
+    .prose-content h1,
+    .prose-content h2,
+    .prose-content h3,
+    .prose-content h4 {
+      font-weight: 700;
+      color: #111827;
+      margin: 2.25rem 0 1rem;
+      line-height: 1.3;
+    }
+    .prose-content h1 { font-size: 2rem; }
+    .prose-content h2 { font-size: 1.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+    .prose-content h3 { font-size: 1.25rem; }
+    .prose-content h4 { font-size: 1.1rem; }
+    .prose-content p  { margin: 1.35rem 0; }
+    .prose-content a  {
+      color: #3b82f6;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .prose-content a:hover { color: #2563eb; }
+    .prose-content img {
+      border-radius: 0.875rem;
+      max-width: 100%;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+    .prose-content figure { margin: 2rem 0; }
+    .prose-content figcaption {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    .prose-content pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 0.875rem;
+      padding: 1.5rem 1.75rem;
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    .prose-content code {
+      background: #f1f5f9;
+      color: #1e40af;
+      padding: 0.2em 0.45em;
+      border-radius: 0.3rem;
+      font-size: 0.875em;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    }
+    .prose-content pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+      border-radius: 0;
+    }
+    .prose-content blockquote {
+      border-left: 4px solid #3b82f6;
+      padding: 0.75rem 1.5rem;
+      margin: 1.75rem 0;
+      color: #4b5563;
+      font-style: italic;
+      background: #eff6ff;
+      border-radius: 0 0.75rem 0.75rem 0;
+    }
+    .prose-content ul,
+    .prose-content ol  { margin: 1.25rem 0; padding-left: 1.75rem; }
+    .prose-content ul  { list-style-type: disc; }
+    .prose-content ol  { list-style-type: decimal; }
+    .prose-content li  { margin: 0.5rem 0; }
+    .prose-content hr  { border: none; border-top: 1px solid #e5e7eb; margin: 2.5rem 0; }
+    .prose-content strong { font-weight: 600; color: #111827; }
+    .prose-content em { font-style: italic; }
+    .prose-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.75rem 0;
+      font-size: 0.9375rem;
+    }
+    .prose-content th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #1e293b;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+    }
+    .prose-content td {
+      padding: 0.65rem 1rem;
+      border: 1px solid #e2e8f0;
+      color: #374151;
+    }
+    .prose-content tr:nth-child(even) td { background: #f8fafc; }
+
+    /* Loading skeleton animation */
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .skeleton-line { animation: pulse 1.8s ease-in-out infinite; background:#e5e7eb; border-radius:0.5rem; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen flex flex-col">
+
+  <nav class="w-full flex justify-center gap-6 py-6 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10 border-b border-gray-100">
+    <a href="index.html"      class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+    <a href="profile.html"    class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Profile</a>
+    <a href="experience.html" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Experience</a>
+    <a href="education.html"  class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Education</a>
+    <a href="skills.html"     class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
+    <a href="blog.html"       class="font-medium text-blue-600 border-b-2 border-blue-500 pb-1">Blog</a>
+  </nav>
+
+  <main class="flex-1 py-12 px-4">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Back link -->
+      <a href="blog.html"
+         class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-8 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to all posts
+      </a>
+
+      <!-- Loading skeleton -->
+      <div id="post-loading">
+        <div class="flex gap-2 mb-5">
+          <div class="skeleton-line h-6 w-20 rounded-full"></div>
+          <div class="skeleton-line h-6 w-16 rounded-full"></div>
+        </div>
+        <div class="skeleton-line h-10 w-full mb-3"></div>
+        <div class="skeleton-line h-10 w-4/5 mb-6"></div>
+        <div class="skeleton-line h-4 w-64 mb-10"></div>
+        <div class="space-y-3">
+          <div class="skeleton-line h-4 w-full"></div>
+          <div class="skeleton-line h-4 w-full"></div>
+          <div class="skeleton-line h-4 w-5/6"></div>
+          <div class="skeleton-line h-4 w-full mt-6"></div>
+          <div class="skeleton-line h-4 w-full"></div>
+          <div class="skeleton-line h-4 w-4/5"></div>
+          <div class="skeleton-line h-4 w-full mt-6"></div>
+          <div class="skeleton-line h-4 w-3/4"></div>
+        </div>
+      </div>
+
+      <!-- Error state -->
+      <div id="post-error" class="hidden text-center py-16">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Post not found</h3>
+        <p class="text-gray-500 mb-6">This post could not be loaded. It may have been removed or the link is invalid.</p>
+        <a href="blog.html"
+           class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors">
+          Back to blog
+        </a>
+      </div>
+
+      <!-- Post content (populated by blog.js) -->
+      <div id="post-container" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-12"></div>
+
+    </div>
+  </main>
+
+  <footer class="text-center py-8 text-sm text-gray-400 border-t border-gray-100 bg-white/60">
+    <p>
+      Words by <a href="index.html" class="text-blue-500 hover:text-blue-600">Sam Rayatnia</a>
+      · Originally published on
+      <a href="https://blog.rayatnia.me" target="_blank" rel="noopener noreferrer"
+         class="text-blue-500 hover:text-blue-600">Medium</a>
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js" defer></script>
+  <script src="static/js/blog.js" defer></script>
+</body>
+</html>
