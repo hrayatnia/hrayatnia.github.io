@@ -1,0 +1,125 @@
+name: Sync Blog Feed
+
+# Runs every 6 hours, on every push to master, and on demand.
+# Fetches the Medium RSS feed server-side (not blocked), converts it
+# to static/data/blog.json, and commits if changed.
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'static/data/blog.json'
+      - 'README.md'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch Medium RSS
+        run: |
+          mkdir -p static/data
+          HTTP_CODE=$(curl -sL \
+            -w "%{http_code}" \
+            -o /tmp/feed.xml \
+            -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
+            -H "Accept: text/xml,application/xml,application/rss+xml,*/*;q=0.9" \
+            -H "Accept-Language: en-US,en;q=0.9" \
+            --max-time 30 \
+            --retry 3 \
+            --retry-delay 5 \
+            "https://medium.com/feed/@rayatnia")
+          echo "HTTP status: $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Feed fetch failed with HTTP $HTTP_CODE"
+            exit 1
+          fi
+
+      - name: Convert RSS to JSON
+        run: |
+          python3 - << 'EOF'
+          import xml.etree.ElementTree as ET
+          import json
+          from datetime import datetime, timezone
+
+          NS = {
+              'content': 'http://purl.org/rss/1.0/modules/content/',
+              'dc':      'http://purl.org/dc/elements/1.1/',
+          }
+
+          def el_text(el, tag, ns=None, default=''):
+              found = el.find(tag, ns) if ns else el.find(tag)
+              if found is None:
+                  return default
+              return (found.text or '').strip()
+
+          try:
+              tree = ET.parse('/tmp/feed.xml')
+              root = tree.getroot()
+          except ET.ParseError as exc:
+              print(f'XML parse error: {exc}')
+              raise SystemExit(1)
+
+          items = []
+          for item in root.findall('.//item'):
+              # <link> in RSS 2.0 may carry the URL as text or tail
+              link_el = item.find('link')
+              link = ''
+              if link_el is not None:
+                  link = (link_el.text or link_el.tail or '').strip()
+              link = link or el_text(item, 'guid')
+
+              content_el = item.find('content:encoded', NS)
+              content     = (content_el.text if content_el is not None else '') or ''
+
+              desc_el     = item.find('description')
+              description = (desc_el.text if desc_el is not None else '') or ''
+
+              categories  = [c.text for c in item.findall('category') if c.text]
+
+              items.append({
+                  'title':       el_text(item, 'title'),
+                  'link':        link,
+                  'pubDate':     el_text(item, 'pubDate'),
+                  'author':      el_text(item, 'dc:creator', NS, 'Sam Rayatnia'),
+                  'thumbnail':   '',
+                  'description': description,
+                  'content':     content or description,
+                  'categories':  categories,
+                  'guid':        el_text(item, 'guid'),
+              })
+
+          channel = root.find('.//channel')
+          output  = {
+              'status':    'ok',
+              'generated': datetime.now(timezone.utc).isoformat(),
+              'feed': {
+                  'title': el_text(channel or root, 'title'),
+                  'link':  el_text(channel or root, 'link'),
+              },
+              'items': items,
+          }
+
+          with open('static/data/blog.json', 'w', encoding='utf-8') as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+
+          print(f'Wrote {len(items)} posts → static/data/blog.json')
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/data/blog.json
+          if git diff --staged --quiet; then
+            echo "blog.json unchanged — nothing to commit"
+          else
+            git commit -m "chore: sync blog feed [skip ci]"
+            git push
+          fi
