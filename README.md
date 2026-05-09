@@ -133,16 +133,12 @@ Computational neuroscience, brain network modelling with fractal dynamics, EEG s
 <summary><b>SQUER Solutions — Senior iOS Engineer · Munich, Germany (Current)</b></summary>
 <br/>
 
-Consulting-led iOS engineering at client companies in Munich, delivering high-quality mobile solutions with a focus on architecture, testing, and performance.
-
 </details>
 
 <details>
 <summary><b>Nimmsta GmbH — Software Engineering Team Lead · Munich (May 2023 – Nov 2024)</b></summary>
 <br/>
 
-- Dramatically reduced system latency and boosted UI performance for Nimmsta's Industrial Smart Watch platform
-- Drove **70% revenue increase** through cloud service innovation
 - Mentored and expanded the engineering team, delivering production SDKs in **C++, Java, Kotlin**
 - Worked across embedded, mobile, and cloud layers on a first-of-its-kind industrial wearable
 
@@ -163,7 +159,6 @@ Consulting-led iOS engineering at client companies in Munich, delivering high-qu
 <summary><b>Check24 GmbH & DoctorBox GmbH — Senior iOS Engineer · Munich (Nov 2021 – Dec 2022)</b></summary>
 <br/>
 
-- **Accelerated development by 80%** by architecting and shipping a shared design system SDK across products
 - Modernized AR features and improved user satisfaction scores
 - Reduced KYC onboarding wait times in the eHealth product
 - Stack: **Swift, Objective-C, iOS Frameworks**
@@ -178,18 +173,6 @@ Consulting-led iOS engineering at client companies in Munich, delivering high-qu
 - Built navigation SDKs in **C++** and payment solutions integrated across millions of daily transactions
 - Delivered mobile products in navigation, payments, and marketplace domains
 - Stack: **Swift, C++, Python**
-
-</details>
-
-<details>
-<summary><b>Neuromatch Academy — Co-CTO & Lecturer · Remote, Los Angeles (Jul 2020 – May 2023)</b></summary>
-<br/>
-
-- Co-founded the technical organisation of a global computational neuroscience education platform
-- **Increased student engagement by 80%** through a full portal redesign
-- Secured external funding to support the platform's growth
-- Mentored **30+ students** in computational neuroscience and deep learning
-- Stack: **Python, TensorFlow, Docker, Jupyter**
 
 </details>
 
